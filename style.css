@@ -10,7 +10,7 @@ body {
     margin: 0; font-family: 'Poppins', sans-serif;
     background-color: var(--bg-dark); color: var(--text-white);
     scroll-behavior: smooth;
-    background-image: url(./arrière-plan.png);
+   
 }
 
 .container { padding: 80px 10%; }
@@ -32,6 +32,7 @@ h2 { font-family: 'Orbitron', sans-serif; color: var(--primary); margin-bottom: 
     height: 100vh; display: flex; align-items: center; justify-content: center;
     text-align: center; background: linear-gradient(rgba(0,0,0,0.7), rgba(15,16,22,1)), url('hero-bg.jpg');
     background-size: cover; padding: 0 5%;
+     background-image: url(./arrière-plan.png);
 }
 
 .hero h1 { font-size: 2.5rem; max-width: 800px; line-height: 1.2; }
@@ -106,4 +107,5 @@ h2 { font-family: 'Orbitron', sans-serif; color: var(--primary); margin-bottom: 
     display:block;
   }
 }
+
 
