@@ -10,6 +10,7 @@ body {
     margin: 0; font-family: 'Poppins', sans-serif;
     background-color: var(--bg-dark); color: var(--text-white);
     scroll-behavior: smooth;
+    background-image: url(./arrière-plan.png);
 }
 
 .container { padding: 80px 10%; }
@@ -105,3 +106,4 @@ h2 { font-family: 'Orbitron', sans-serif; color: var(--primary); margin-bottom: 
     display:block;
   }
 }
+
