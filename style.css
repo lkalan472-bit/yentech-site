@@ -1,0 +1,107 @@
+:root {
+    --primary: #FFD700;
+    --bg-dark: #0f1016;
+    --bg-card: #1a1c24;
+    --text-white: #ffffff;
+    --text-gray: #a0a0a0;
+}
+
+body {
+    margin: 0; font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-dark); color: var(--text-white);
+    scroll-behavior: smooth;
+}
+
+.container { padding: 80px 10%; }
+h2 { font-family: 'Orbitron', sans-serif; color: var(--primary); margin-bottom: 30px; text-transform: uppercase; }
+
+/* Navbar Mobile First */
+.navbar {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 15px 5%; background: rgba(15, 16, 22, 0.95);
+    position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.nav-links { display: flex; list-style: none; gap: 25px; }
+.nav-links a { color: white; text-decoration: none; font-weight: 500; font-size: 0.9rem; transition: 0.3s; }
+.nav-links a:hover { color: var(--primary); }
+
+/* Hero Section */
+.hero {
+    height: 100vh; display: flex; align-items: center; justify-content: center;
+    text-align: center; background: linear-gradient(rgba(0,0,0,0.7), rgba(15,16,22,1)), url('hero-bg.jpg');
+    background-size: cover; padding: 0 5%;
+}
+
+.hero h1 { font-size: 2.5rem; max-width: 800px; line-height: 1.2; }
+.hero span { color: var(--primary); }
+
+/* Services & Cards */
+.services-grid, .project-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;
+}
+
+.service-card {
+    background: var(--bg-card); padding: 40px; border-radius: 15px;
+    border-bottom: 3px solid transparent; transition: 0.4s;
+}
+
+.service-card:hover { border-bottom: 3px solid var(--primary); transform: translateY(-10px); }
+
+/* Formulaire Contact */
+.contact-flex { display: flex; gap: 50px; flex-wrap: wrap; }
+.contact-form { flex: 1; display: flex; flex-direction: column; gap: 15px; }
+.contact-form input, .contact-form textarea {
+    padding: 15px; background: #252731; border: none; border-radius: 8px; color: white;
+}
+
+/* WhatsApp Float */
+.whatsapp-btn {
+    position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px;
+    background: #25d366; border-radius: 50%; display: flex; align-items: center;
+    justify-content: center; box-shadow: 0 5px 15px rgba(0,0,0,0.3); z-index: 1001;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nav-links { display: none; } /* Pourrait être géré avec JS pour un menu mobile */
+    .hero h1 { font-size: 1.8rem; }
+    .container { padding: 60px 5%; }
+}
+
+/* MENU */
+.menu-desktop{
+  display:flex;
+  gap:15px;
+}
+
+.hamburger{
+  display:none;
+  font-size:30px;
+  cursor:pointer;
+  color:var(--bleu);
+}
+
+/* MENU MOBILE */
+.menu-mobile{
+  display:none;
+  flex-direction:column;
+  background:#fff;
+  width:100%;
+}
+.menu-mobile a{
+  padding:15px;
+  border-bottom:1px solid #ddd;
+  color:#000;
+  font-weight:600;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .menu-desktop{
+    display:none;
+  }
+  .hamburger{
+    display:block;
+  }
+}
