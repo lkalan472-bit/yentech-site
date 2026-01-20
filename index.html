@@ -1,22 +1,20 @@
 
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>YENTECH | Young Engineers for New Technology</title>
+  <title>Yen ⚡ tec | Young Engineers for New Technology</title>
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
   <style>
-     :root {
-      /* Couleurs extraites de votre logo */
-      --marron-logo: #3d3935; /* Couleur du texte "Yen Tech" */
-      --jaune-logo: #f5b700;  /* Couleur de l'éclair */
-      --rouge-logo: #a61e11;  /* Couleur du texte "Young Engineers" */
-      --gris-fond: #f8f9fa;
+    :root {
+      --marron-logo: #3d3935; 
+      --jaune-logo: #f5b700;  
+      --rouge-logo: #a61e11;  
+      --gris-header: #f4f6f8; 
       --blanc: #ffffff;
     }
 
@@ -31,18 +29,17 @@
       color: var(--marron-logo);
       background-color: var(--blanc);
       scroll-behavior: smooth;
-      line-height: 1.6;
     }
 
     a { text-decoration: none; transition: 0.3s; }
 
-    /* ================= HEADER & NAV ================= */
+    /* ================= HEADER ================= */
     header {
       position: fixed;
       top: 0;
       width: 100%;
-      background: var(--blanc);
-      box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+      background: var(--gris-header);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
       z-index: 1000;
     }
 
@@ -51,231 +48,138 @@
       justify-content: space-between;
       align-items: center;
       padding: 10px 5%;
-      max-width: 1200px;
+      max-width: 1400px;
       margin: auto;
     }
 
-    .logo-container {
+    .brand-container {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 15px;
     }
 
-    .nav img {
-      height: 50px;
+    .nav-logo {
+      height: 85px; /* Logo encore plus grand */
       width: auto;
     }
 
     .brand-name {
       font-weight: 900;
-      font-size: 22px;
+      font-size: 28px;
       color: var(--marron-logo);
       letter-spacing: -1px;
-      text-transform: none;
+    }
+
+    .brand-name span { 
+        color: var(--jaune-logo); 
+        margin: 0 5px; /* Espace autour de l'éclair */
+    }
+
+    /* Menu aligné à DROITE */
+    .menu-desktop {
+      display: flex;
+      gap: 30px;
     }
 
     .menu-desktop a {
-      margin-left: 25px;
-      font-weight: 600;
+      font-weight: 700;
       color: var(--marron-logo);
-      font-size: 15px;
+      font-size: 16px;
+      text-transform: uppercase;
     }
 
-    .menu-desktop a:hover {
-      color: var(--rouge-logo);
-    }
+    .menu-desktop a:hover { color: var(--rouge-logo); }
 
-    .hamburger {
-      display: none;
-      font-size: 28px;
-      cursor: pointer;
-      color: var(--marron-logo);
-    }
+    .hamburger { display: none; font-size: 30px; cursor: pointer; }
 
     /* ================= HERO ================= */
-    .hero{
-      margin-top:80px;
-      background:
-        linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),
-        url("./background.png") center/cover;
-      color:#fff;
-      text-align:center;
-      padding:100px 15px;
+    .hero {
+      margin-top: 105px;
+      background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), 
+                  url("./background.png") center/cover;
+      color: var(--blanc);
+      text-align: center;
+      padding: 130px 20px;
     }
 
-     .hero h1 {
-      font-size: 2.5rem;
-      line-height: 1.2;
-      margin-bottom: 20px;
-      font-weight: 800;
-    }
-
-    .hero h1 .highlight-red { color: var(--rouge-logo); }
-    .hero h1 .highlight-yellow { color: var(--jaune-logo); }
-
-    .hero p {
-      font-size: 1.2rem;
-      max-width: 800px;
-      margin: 0 auto 30px;
-      font-weight: 300;
-    }
+    .hero h1 { font-size: 3.2rem; margin-bottom: 20px; font-weight: 900; line-height: 1.1; }
+    .hero h1 .red { color: var(--rouge-logo); }
+    .hero h1 .yellow { color: var(--jaune-logo); }
 
     .btn-main {
       background: var(--jaune-logo);
       color: var(--marron-logo);
-      padding: 15px 40px;
+      padding: 18px 45px;
       border-radius: 50px;
-      font-weight: 700;
+      font-weight: 800;
       display: inline-block;
-      box-shadow: 0 4px 15px rgba(245, 183, 0, 0.4);
+      font-size: 18px;
     }
 
-    .btn-main:hover {
-      transform: translateY(-3px);
-      background: var(--blanc);
-    }
-
-    /* ================= SECTIONS GLOBALES ================= */
-    section { padding: 80px 5%; max-width: 1200px; margin: auto; }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 50px;
-    }
-
-    .section-title h2 {
-      font-size: 32px;
-      color: var(--marron-logo);
-      position: relative;
-      display: inline-block;
-      padding-bottom: 10px;
-    }
-
+    /* ================= SECTIONS ================= */
+    section { padding: 90px 5%; max-width: 1200px; margin: auto; }
+    .section-title { text-align: center; margin-bottom: 60px; }
+    .section-title h2 { font-size: 34px; color: var(--marron-logo); position: relative; padding-bottom: 15px; }
     .section-title h2::after {
-      content: '';
-      position: absolute;
-      width: 60%;
-      height: 4px;
-      background: var(--jaune-logo);
-      bottom: 0;
-      left: 20%;
-      border-radius: 2px;
+        content: ''; width: 80px; height: 5px; background: var(--jaune-logo); 
+        position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
     }
 
     /* ================= SERVICES ================= */
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 35px;
     }
-
     .service-card {
-      background: var(--gris-fond);
-      padding: 40px 30px;
-      border-radius: 20px;
-      border-bottom: 5px solid transparent;
-      transition: 0.3s;
+      background: #fdfdfd;
+      padding: 45px 35px;
+      border-radius: 25px;
       text-align: center;
+      border: 1px solid #eee;
+      transition: 0.4s;
     }
-
-    .service-card:hover {
-      border-bottom: 5px solid var(--jaune-logo);
-      transform: translateY(-10px);
-      background: white;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    }
-
-    .service-card h3 {
-      color: var(--rouge-logo);
-      margin-bottom: 20px;
-      font-size: 22px;
-    }
-
-    .service-card ul {
-      list-style: none;
-      margin-bottom: 25px;
-      text-align: left;
-    }
-
-    .service-card li {
-      margin-bottom: 10px;
-      font-size: 15px;
-    }
-
-    .service-card li::before {
-      content: '✓';
-      color: var(--jaune-logo);
-      font-weight: bold;
-      margin-right: 10px;
-    }
-
-    .btn-reserve {
-      display: block;
-      background: var(--marron-logo);
-      color: white;
-      padding: 12px;
-      border-radius: 10px;
-      font-weight: 600;
-    }
-
-    .btn-reserve:hover { background: var(--rouge-logo); }
+    .service-card:hover { transform: translateY(-12px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); border-color: var(--jaune-logo); }
+    .service-card h3 { color: var(--rouge-logo); margin-bottom: 25px; font-size: 24px; }
+    .service-card ul { list-style: none; text-align: left; }
+    .service-card li { margin-bottom: 12px; font-weight: 500; }
+    .service-card li::before { content: "⚡ "; color: var(--jaune-logo); }
 
     /* ================= CONTACT ================= */
-    .contact-box {
+    .contact-container {
       background: var(--marron-logo);
       color: white;
-      padding: 60px 40px;
-      border-radius: 30px;
-      text-align: center;
+      padding: 70px 50px;
+      border-radius: 40px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 50px;
     }
+    .contact-city h3 { color: var(--jaune-logo); margin-bottom: 25px; font-size: 26px; border-left: 5px solid var(--rouge-logo); padding-left: 15px; }
+    .contact-city p { margin-bottom: 15px; font-size: 17px; line-height: 1.5; }
+    .contact-city i { color: var(--jaune-logo); width: 25px; font-size: 20px; }
 
-    .contact-box h2 { color: var(--jaune-logo); margin-bottom: 30px; }
-    .contact-info { font-size: 18px; margin: 15px 0; }
+    footer { background: #0f0f0f; color: #bbb; text-align: center; padding: 40px; font-weight: 500; }
 
-    /* ================= FOOTER ================= */
-    footer {
-      background: #1a1a1a;
-      color: #888;
-      text-align: center;
-      padding: 30px;
-      font-size: 14px;
-      border-top: 1px solid #333;
-    }
-
-    /* ================= MOBILE ================= */
+    /* MOBILE */
     @media (max-width: 768px) {
       .menu-desktop { display: none; }
       .hamburger { display: block; }
-      .hero h1 { font-size: 2rem; }
-      
+      .hero h1 { font-size: 2.2rem; }
       .menu-mobile {
-        display: none;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        background: white;
-        flex-direction: column;
-        box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+        display: none; flex-direction: column; position: absolute; top: 105px; left: 0; width: 100%; background: var(--gris-header);
       }
-      
-      .menu-mobile a {
-        padding: 20px;
-        border-bottom: 1px solid #eee;
-        color: var(--marron-logo);
-        font-weight: 600;
-      }
+      .menu-mobile a { padding: 20px; border-bottom: 1px solid #ddd; color: var(--marron-logo); text-align: center; }
     }
-
   </style>
 </head>
-
 <body>
 
 <header>
-  <div class="nav">
-    <img src="logo.jpg" alt="YENTECH">
-       <span class="brand-name">Yen Tech</span>
+  <nav class="nav">
+    <div class="brand-container">
+      <img src="logo.jpg" alt="Yen ⚡ tec Logo" class="nav-logo">
+      <div class="brand-name">Yen <span>⚡</span> tec</div>
     </div>
 
     <div class="menu-desktop">
@@ -297,79 +201,64 @@
 </header>
 
 <section class="hero" id="accueil">
-  <h1>
-    <span class="highlight-red">Young Engineers</span> for <br>
-    <span class="highlight-yellow">New Technology</span>
-  </h1>
-  <p>Votre partenaire de confiance pour des solutions techniques innovantes et durables en RDC.</p>
-  <a href="#contact" class="btn-main">Discuter de votre projet</a>
-</section>
-
-<section id="apropos">
-  <div class="section-title">
-    <h2>À propos de YENTECH</h2>
-  </div>
-  <div style="text-align: center; max-width: 800px; margin: auto;">
-    <p><strong>Young Engineers for New Technology (YENTECH)</strong> est une entreprise dynamique spécialisée dans l'ingénierie moderne en République Démocratique du Congo.</p>
-    <p style="margin-top: 20px;">Nous fusionnons l'expertise de jeunes ingénieurs avec les dernières innovations technologiques pour offrir des services d'excellence en énergie, électricité et climatisation.</p>
-  </div>
+  <h1><span class="red">Young Engineers</span> for <br><span class="yellow">New Technology</span></h1>
+  <p>L'excellence technique au service de votre développement en RDC.</p>
+  <a href="https://wa.me/243977691698" class="btn-main">WhatsApp : +243 977 691 698</a>
 </section>
 
 <section id="services">
-  <div class="section-title">
-    <h2>Nos Domaines d'Expertise</h2>
-  </div>
-
+  <div class="section-title"><h2>Nos Services Yen <span>⚡</span> tec</h2></div>
   <div class="services-grid">
     <div class="service-card">
       <h3>☀️ Énergie Solaire</h3>
       <ul>
-        <li>Étude et dimensionnement précis</li>
-        <li>Installation de kits photovoltaïques</li>
-        <li>Systèmes hybrides & stockage</li>
-        <li>Éclairage public intelligent</li>
+        <li>Étude & Dimensionnement d'expert</li>
+        <li>Installation kits photovoltaïques</li>
+        <li>Maintenance & Optimisation</li>
       </ul>
-      <a href="https://wa.me/243825044520" class="btn-reserve">Demander un devis</a>
     </div>
-
     <div class="service-card">
       <h3>⚡ Génie Électrique</h3>
       <ul>
-        <li>Installations résidentielles</li>
-        <li>Câblage industriel & tertiaire</li>
-        <li>Conception de tableaux électriques</li>
-        <li>Audit et maintenance curative</li>
+        <li>Installations Basse & Moyenne Tension</li>
+        <li>Câblage structuré & Industriel</li>
+        <li>Audits de sécurité électrique</li>
       </ul>
-      <a href="https://wa.me/243825044520" class="btn-reserve">Demander un devis</a>
     </div>
-
     <div class="service-card">
       <h3>❄️ Froid & Climatisation</h3>
       <ul>
-        <li>Installation de climatisation (AC)</li>
-        <li>Maintenance et recharge gaz</li>
-        <li>Installation de chambres froides</li>
-        <li>Solutions de froid industriel</li>
+        <li>Installation systèmes de refroidissement</li>
+        <li>Maintenance chambres froides</li>
+        <li>Expertise en climatisation centrale</li>
       </ul>
-      <a href="https://wa.me/243825044520" class="btn-reserve">Demander un devis</a>
     </div>
   </div>
 </section>
 
 <section id="contact">
-  <div class="contact-box">
-    <h2>Contactez-nous</h2>
-    <p class="contact-info">📍 3930 Avenue Aérodrome-ISTA, Kinshasa/Barumbu</p>
-    <p class="contact-info">📞 +243 825 044 520 | +246 977 691 669</p>
-    <p class="contact-info">✉️ yentech8@gmail.com</p>
-    <div style="margin-top: 30px;">
-        <a href="https://wa.me/243825044520" class="btn-main">Envoyer un WhatsApp</a>
+  <div class="section-title"><h2>Nos Adresses & Contacts</h2></div>
+  <div class="contact-container">
+    <div class="contact-city">
+      <h3>📍 Kinshasa</h3>
+      <p><i class="fas fa-map-marker-alt"></i> Congo-Kinshasa, C/limete, Q/kingabwa, Av.Lukula 8b</p>
+      <p><i class="fas fa-phone-alt"></i> +243 977 691 698</p>
+      <p><i class="fas fa-phone-alt"></i> +243 825 044 520</p>
+      <p><i class="fas fa-envelope"></i> yentech8@gmail.com</p>
+    </div>
+
+    <div class="contact-city">
+      <h3>📍 Goma</h3>
+      <p><i class="fas fa-map-marker-alt"></i> Congo-Kinshasa, C/Karisimbi, Q/Katoyi, Av. Technicien</p>
+      <p><i class="fas fa-phone-alt"></i> +243 997 391 521</p>
+      <p><i class="fas fa-phone-alt"></i> +243 901 855 702</p>
+      <p><i class="fab fa-whatsapp"></i> Réf WhatsApp: +243 977 691 698</p>
     </div>
   </div>
 </section>
 
 <footer>
-  <p>© 2026 YENTECH – Young Engineers for New Technology. Tous droits réservés.</p>
+  <p>© 2026 Yen <span>⚡</span> tec – Young Engineers for New Technology. Tous droits réservés.</p>
 </footer>
 
 <script>
@@ -377,15 +266,11 @@
   const menuMobile = document.getElementById("menuMobile");
 
   hamburger.addEventListener("click", () => {
-    const isFlex = menuMobile.style.display === "flex";
-    menuMobile.style.display = isFlex ? "none" : "flex";
+    menuMobile.style.display = (menuMobile.style.display === "flex") ? "none" : "flex";
   });
 
-  // Fermer le menu mobile lors d'un clic sur un lien
   document.querySelectorAll('.menu-mobile a').forEach(link => {
-    link.addEventListener('click', () => {
-      menuMobile.style.display = "none";
-    });
+    link.addEventListener('click', () => { menuMobile.style.display = "none"; });
   });
 </script>
 
