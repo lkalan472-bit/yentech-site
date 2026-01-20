@@ -1,111 +1,487 @@
-:root {
-    --primary: #FFD700;
-    --bg-dark: #0f1016;
-    --bg-card: #1a1c24;
-    --text-white: #ffffff;
-    --text-gray: #a0a0a0;
-}
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yen ⚡ tech | Young Engineers for New Technology</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="./logo.jpg" />
+    <style>
+      :root {
+        --marron-logo: #3d3935;
+        --jaune-logo: #f5b700;
+        --rouge-logo: #a61e11;
+        --gris-header: #f4f6f8;
+        --blanc: #ffffff;
+        --noir-nav: #000000;
+        --gris-fond: #f8f9fa;
+        --card-bg: #f8f9fa;
+        --text-color: #3d3935;
+      }
 
-body {
-    margin: 0; font-family: 'Poppins', sans-serif;
-    background-color: var(--bg-dark); color: var(--text-white);
-    scroll-behavior: smooth;
-   
-}
+      /* Classes pour le Mode Sombre */
+      body.dark {
+        --marron-logo: #f4f6f8;
+        --gris-header: #1a1a1a;
+        --blanc: #121212;
+        --noir-nav: #ffffff;
+        --gris-fond: #1e1e1e;
+        --card-bg: #252525;
+        --text-color: #e0e0e0;
+      }
 
-.container { padding: 80px 10%; }
-h2 { font-family: 'Orbitron', sans-serif; color: var(--primary); margin-bottom: 30px; text-transform: uppercase; }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+        transition: background 0.3s, color 0.3s;
+      }
 
-/* Navbar Mobile First */
-.navbar {
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 15px 5%; background: rgba(15, 16, 22, 0.95);
-    position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.1);
-}
+      body {
+        color: var(--text-color);
+        background-color: var(--blanc);
+        scroll-behavior: smooth;
+        line-height: 1.6;
+      }
 
-.nav-links { display: flex; list-style: none; gap: 25px; }
-.nav-links a { color: white; text-decoration: none; font-weight: 500; font-size: 0.9rem; transition: 0.3s; }
-.nav-links a:hover { color: var(--primary); }
+      a {
+        text-decoration: none;
+        transition: 0.3s;
+      }
 
-/* Hero Section */
-.hero {
-    height: 100vh; display: flex; align-items: center; justify-content: center;
-    text-align: center; background: linear-gradient(rgba(0,0,0,0.7), rgba(15,16,22,1)), url('hero-bg.jpg');
-    background-size: cover; padding: 0 5%;
-     background-image: url(./arrière-plan.png);
-}
+      /* ================= HEADER & NAV ================= */
+      header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: var(--gris-header);
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+      }
+      .nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 5%;
+        max-width: 1400px;
+        margin: auto;
+      }
+      .logo-container {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+      .nav img {
+        height: 80px;
+        width: auto;
+      }
+      .brand-name {
+        font-weight: 900;
+        font-size: 26px;
+        color: var(--marron-logo);
+        letter-spacing: -1px;
+      }
+      .brand-name span {
+        color: var(--jaune-logo);
+        margin: 0 5px;
+      }
+      
+      .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
 
-.hero h1 { font-size: 2.5rem; max-width: 800px; line-height: 1.2; }
-.hero span { color: var(--primary); }
+      .menu-desktop {
+        display: flex;
+        align-items: center;
+      }
+      .menu-desktop a {
+        margin-left: 25px;
+        font-weight: 700;
+        color: var(--noir-nav);
+        font-size: 15px;
+        text-transform: uppercase;
+      }
+      .menu-desktop a:hover {
+        color: var(--rouge-logo);
+      }
 
-/* Services & Cards */
-.services-grid, .project-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;
-}
+      /* Bouton Mode Sombre */
+      #dark-mode-toggle {
+        background: none;
+        border: 2px solid var(--jaune-logo);
+        color: var(--jaune-logo);
+        padding: 5px 12px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-weight: 700;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
 
-.service-card {
-    background: var(--bg-card); padding: 40px; border-radius: 15px;
-    border-bottom: 3px solid transparent; transition: 0.4s;
-}
+      .hamburger {
+        display: none;
+        font-size: 30px;
+        cursor: pointer;
+        color: var(--noir-nav);
+      }
 
-.service-card:hover { border-bottom: 3px solid var(--primary); transform: translateY(-10px); }
+      /* ================= HERO SECTION ================= */
+      .hero {
+        margin-top: 100px;
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+          url("./background.png") center/cover;
+        color: #ffffff; /* Reste blanc pour contraste sur image */
+        text-align: center;
+        padding: 130px 20px;
+      }
+      .hero h1 {
+        font-size: 3rem;
+        line-height: 1.2;
+        margin-bottom: 20px;
+        font-weight: 900;
+      }
+      .hero h1 .highlight-yellow {
+        color: var(--jaune-logo);
+      }
+      .btn-main {
+        background: var(--jaune-logo);
+        color: #3d3935;
+        padding: 15px 40px;
+        border-radius: 50px;
+        font-weight: 800;
+        display: inline-block;
+        box-shadow: 0 4px 15px rgba(245, 183, 0, 0.4);
+      }
 
-/* Formulaire Contact */
-.contact-flex { display: flex; gap: 50px; flex-wrap: wrap; }
-.contact-form { flex: 1; display: flex; flex-direction: column; gap: 15px; }
-.contact-form input, .contact-form textarea {
-    padding: 15px; background: #252731; border: none; border-radius: 8px; color: white;
-}
+      /* ================= SECTIONS GLOBALES ================= */
+      section {
+        padding: 80px 5%;
+        max-width: 1200px;
+        margin: auto;
+      }
+      .section-title {
+        text-align: center;
+        margin-bottom: 50px;
+      }
+      .section-title h2 {
+        font-size: 32px;
+        color: var(--marron-logo);
+        position: relative;
+        display: inline-block;
+        padding-bottom: 10px;
+      }
+      .section-title h2::after {
+        content: "";
+        position: absolute;
+        width: 60%;
+        height: 4px;
+        background: var(--jaune-logo);
+        bottom: 0;
+        left: 20%;
+        border-radius: 2px;
+      }
 
-/* WhatsApp Float */
-.whatsapp-btn {
-    position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px;
-    background: #25d366; border-radius: 50%; display: flex; align-items: center;
-    justify-content: center; box-shadow: 0 5px 15px rgba(0,0,0,0.3); z-index: 1001;
-}
+      /* ================= SERVICES ================= */
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+      }
+      .service-card {
+        background: var(--card-bg);
+        padding: 40px 30px;
+        border-radius: 20px;
+        text-align: center;
+        border: 1px solid #eee;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      body.dark .service-card {
+        border-color: #444;
+      }
+      .service-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+      .service-card h3 {
+        color: var(--rouge-logo);
+        margin-bottom: 20px;
+      }
+      .service-card ul {
+        list-style: none;
+        text-align: left;
+        margin-bottom: 25px;
+        flex-grow: 1;
+      }
+      .service-card li::before {
+        content: "⚡ ";
+        color: var(--jaune-logo);
+        font-weight: bold;
+        margin-right: 5px;
+      }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .nav-links { display: none; } /* Pourrait être géré avec JS pour un menu mobile */
-    .hero h1 { font-size: 1.8rem; }
-    .container { padding: 60px 5%; }
-}
+      .btn-reserve {
+        background: var(--marron-logo);
+        color: var(--blanc);
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-weight: 600;
+        display: inline-block;
+        margin-top: 15px;
+        font-size: 14px;
+      }
 
-/* MENU */
-.menu-desktop{
-  display:flex;
-  gap:15px;
-}
+      /* ================= CONTACT ================= */
+      .contact-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+      }
+      .contact-box {
+        background: var(--marron-logo);
+        color: #ffffff;
+        padding: 40px;
+        border-radius: 30px;
+      }
+      body.dark .contact-box {
+          background: #252525;
+          border: 1px solid #444;
+      }
+      .contact-box h3 {
+        color: var(--jaune-logo);
+        margin-bottom: 20px;
+      }
+      footer {
+        background: #111;
+        color: #888;
+        text-align: center;
+        padding: 30px;
+      }
 
-.hamburger{
-  display:none;
-  font-size:30px;
-  cursor:pointer;
-  color:var(--bleu);
-}
+      /* ================= MOBILE ================= */
+      @media (max-width: 768px) {
+        .menu-desktop {
+          display: none;
+        }
+        .hamburger {
+          display: block;
+        }
+        .menu-mobile {
+          display: none;
+          position: absolute;
+          top: 100px;
+          left: 0;
+          width: 100%;
+          background: var(--gris-header);
+          flex-direction: column;
+          z-index: 999;
+        }
+        .menu-mobile a {
+          padding: 20px;
+          border-bottom: 1px solid #ddd;
+          color: var(--noir-nav);
+          text-align: center;
+          font-weight: 700;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="nav">
+        <div class="logo-container">
+          <img src="logo.jpg" alt="YEN ⚡ TEC Logo" />
+          <span class="brand-name">YEN <span>⚡</span> Tech</span>
+        </div>
+        <div class="nav-right">
+          <div class="menu-desktop">
+            <a href="#accueil">Accueil</a>
+            <a href="#apropos">À propos</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
+          </div>
+          <button id="dark-mode-toggle">🌙</button>
+          <div class="hamburger" id="hamburger">☰</div>
+        </div>
+        <div class="menu-mobile" id="menuMobile">
+          <a href="#accueil">Accueil</a>
+          <a href="#apropos">À propos</a>
+          <a href="#services">Services</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </header>
 
-/* MENU MOBILE */
-.menu-mobile{
-  display:none;
-  flex-direction:column;
-  background:#fff;
-  width:100%;
-}
-.menu-mobile a{
-  padding:15px;
-  border-bottom:1px solid #ddd;
-  color:#000;
-  font-weight:600;
-}
+    <section class="hero" id="accueil">
+      <h1>
+        <span class="highlight-yellow">Young Engineers</span> <br />
+        <span class="highlight-white">for New Technology</span>
+      </h1>
+      <p>
+        Expertise et Innovation technique au cœur de la République Démocratique
+        du Congo.
+      </p>
+      <a href="#services" class="btn-main">Nos Services</a>
+    </section>
 
-/* RESPONSIVE */
-@media(max-width:768px){
-  .menu-desktop{
-    display:none;
-  }
-  .hamburger{
-    display:block;
-  }
-}
+    <section id="apropos">
+      <div class="section-title">
+        <h2>À propos de Yen ⚡ tech</h2>
+      </div>
+      <div style="text-align: center; max-width: 800px; margin: auto">
+        <p>
+          <strong>Young Engineers for New Technology (Yen ⚡ tech)</strong> est
+          une entreprise dynamique spécialisée dans l'ingénierie moderne en
+          République Démocratique du Congo.
+        </p>
+        <p style="margin-top: 20px">
+          Nous fusionnons l'expertise de jeunes ingénieurs avec les dernières
+          innovations technologiques pour offrir des services d'excellence en
+          énergie, électricité et climatisation.
+        </p>
+      </div>
+    </section>
 
+    <section id="services">
+      <div class="section-title">
+        <h2>Nos Services Yen <span>⚡</span> tech</h2>
+      </div>
 
+      <div class="services-grid">
+        <div class="service-card">
+          <h3>☀️ Énergie Solaire</h3>
+          <ul>
+            <li>Étude et dimensionnement</li>
+            <li>Installation de kits photovoltaïques</li>
+            <li>Maintenance de systèmes</li>
+          </ul>
+          <a
+            href="mailto:yentech8@gmail.com?subject=Réservation Service Solaire"
+            class="btn-reserve"
+            >Réserver maintenant</a
+          >
+        </div>
+
+        <div class="service-card">
+          <h3>⚡ Génie Électrique</h3>
+          <ul>
+            <li>Installation Bâtiment & Industrielle</li>
+            <li>Câblage et Tableaux</li>
+            <li>Audit énergétique</li>
+          </ul>
+          <a
+            href="mailto:yentech8@gmail.com?subject=Réservation Service Électricité"
+            class="btn-reserve"
+            >Réserver maintenant</a
+          >
+        </div>
+
+        <div class="service-card">
+          <h3>❄️ Froid & Climatisation</h3>
+          <ul>
+            <li>Installation climatisation</li>
+            <li>Maintenance chambres froides</li>
+            <li>Réparation technique</li>
+          </ul>
+          <a
+            href="mailto:yentech8@gmail.com?subject=Réservation Service Froid et Climatisation"
+            class="btn-reserve"
+            >Réserver maintenant</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="section-title">
+        <h2>Nos Bureaux</h2>
+      </div>
+      <div class="contact-container">
+        <div class="contact-box">
+          <h3>📍 Kinshasa</h3>
+          <p class="contact-info">
+            Congo-Kinshasa, C/limete, Q/kingabwa, Av.Lukula 8b
+          </p>
+          <p class="contact-info">📞 +243 977 691 698</p>
+          <p class="contact-info">📞 +243 825 044 520</p>
+          <p class="contact-info">✉️ yentech8@gmail.com</p>
+          <a
+            href="https://wa.me/243977691698"
+            target="_blank"
+            style="color: var(--jaune-logo); font-weight: bold"
+            >👉 WhatsApp Kinshasa : +243 977 691 698</a
+          >
+        </div>
+        <div class="contact-box">
+          <h3>📍 Goma</h3>
+          <p class="contact-info">
+            Congo-Kinshasa, C/Karisimbi, Q/Katoyi, Av. Technicien
+          </p>
+          <p class="contact-info">📞 +243 997 391 521</p>
+          <p class="contact-info">📞 +243 901 855 702</p>
+          <p class="contact-info">✉️ olivierhamuli021@gmail.com</p>
+          <div style="margin-top: 15px">
+            <a
+              href="https://wa.me/243997391521"
+              target="_blank"
+              style="color: var(--jaune-logo); font-weight: bold"
+              >👉 WhatsApp Goma : +243 997 391 521</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>
+        © 2026 Yen <span>⚡</span> tec – Young Engineers for New Technology.
+        Tous droits réservés.
+      </p>
+    </footer>
+
+    <script>
+      // Menu Mobile
+      const hamburger = document.getElementById("hamburger");
+      const menuMobile = document.getElementById("menuMobile");
+      hamburger.addEventListener("click", () => {
+        menuMobile.style.display =
+          menuMobile.style.display === "flex" ? "none" : "flex";
+      });
+      document.querySelectorAll(".menu-mobile a").forEach((link) => {
+        link.addEventListener("click", () => {
+          menuMobile.style.display = "none";
+        });
+      });
+
+      // Dark Mode
+      const toggleBtn = document.getElementById("dark-mode-toggle");
+      const body = document.body;
+
+      toggleBtn.addEventListener("click", () => {
+        body.classList.toggle("dark");
+        if (body.classList.contains("dark")) {
+          toggleBtn.innerText = "☀️";
+          localStorage.setItem("theme", "dark");
+        } else {
+          toggleBtn.innerText = "🌙";
+          localStorage.setItem("theme", "light");
+        }
+      });
+
+      // Garder le mode après actualisation
+      if (localStorage.getItem("theme") === "dark") {
+        body.classList.add("dark");
+        toggleBtn.innerText = "☀️";
+      }
+    </script>
+  </body>
+</html>
